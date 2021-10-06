@@ -97,7 +97,10 @@ func doServeAdmitFunc(w http.ResponseWriter, r *http.Request, admit admitFunc) (
 		// the API server will be unable to process the response.
 		// Note: a v1beta1 AdmissionReview is JSON-compatible with the v1 version, that's why
 		// we do not need to differentiate during unmarshaling or in the actual logic.
-		TypeMeta: admissionReviewReq.TypeMeta,
+		TypeMeta: metav1.TypeMeta{
+			Kind: "AdmissionReview",
+			APIVersion: "admission.k8s.io/v1",
+		},
 		Response: &admission.AdmissionResponse{
 			UID: admissionReviewReq.Request.UID,
 		},
