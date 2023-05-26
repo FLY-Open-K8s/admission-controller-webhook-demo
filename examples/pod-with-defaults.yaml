@@ -13,3 +13,6 @@ spec:
     - name: busybox
       image: busybox
       command: ["sh", "-c", "echo I am running as user $(id -u)"]
+      env:
+        - name: TZ
+          value: Asia/Shanghai
