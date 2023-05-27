@@ -25,6 +25,10 @@ image/webhook-server: $(shell find . -name '*.go')
 docker-image: image/webhook-server
 	docker build -t $(IMAGE) image/
 
-.PHONY: push-image
-push-image: docker-image
-	docker push $(IMAGE)
+#.PHONY: cotainerd-image
+#docker-image: image/webhook-server
+#	nerdctl -n=k8s.io build -t $(IMAGE) image/
+
+#.PHONY: push-image
+#push-image: docker-image
+#	docker push $(IMAGE)
